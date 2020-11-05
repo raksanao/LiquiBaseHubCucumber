@@ -30,8 +30,6 @@ public class ProjectPage {
 
     public void clicktoProjects() {
 
-        BrowserUtils.wait(2);
-
         BrowserUtils.wait(4);
         PageFactory.initElements(Driver.getDriver(), this);
 
@@ -39,7 +37,7 @@ public class ProjectPage {
         JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
         //use executeScript
         jse.executeScript("arguments[0].click();", projectbtn);
-
+projectbtn.click();
     }
 
     public void expandModule() {
