@@ -18,24 +18,24 @@ public class SettingPage {
     @FindBy(xpath = "//span[.='close']")
     protected WebElement popupX;
 
-    @FindBy(xpath="(//div[@class='settings-tree__item'])[1]")
+    @FindBy(xpath = "(//div[@class='settings-tree__item'])[1]")
     protected WebElement userInfo;
-    @FindBy(css="input[id='mat-input-3']" )
+    @FindBy(css = "input[id='mat-input-3']")
     protected WebElement firstName;
 
-    @FindBy(css="input[id='mat-input-4']" )
+    @FindBy(css = "input[id='mat-input-4']")
     protected WebElement middleName;
 
-    @FindBy(css="input[id='mat-input-5']" )
+    @FindBy(css = "input[id='mat-input-5']")
     protected WebElement lastName;
 
-    @FindBy(css="input[id='mat-input-8']" )
+    @FindBy(css = "input[id='mat-input-8']")
     protected WebElement url;
 
-    @FindBy(css="input[id='mat-input-9']" )
+    @FindBy(css = "input[id='mat-input-9']")
     protected WebElement company;
 
-    @FindBy(id="mat-input-10")
+    @FindBy(id = "mat-input-10")
     protected WebElement bio;
     @FindBy(xpath = "//span[.='Update Profile']")
     protected WebElement updateProfile;
@@ -49,42 +49,48 @@ public class SettingPage {
         WebElement settingBtn = Driver.getDriver().findElement(By.xpath("//*[text()='settings']"));
         JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
         //use executeScript
-        jse.executeScript("arguments[0].click();",settingBtn);
+        jse.executeScript("arguments[0].click();", settingBtn);
 
     }
 
-    public void closePopup(){
+    public void closePopup() {
         BrowserUtils.wait(4);
         popupX.click();
 
 
     }
     public void setFirstName(String firstname){
-     firstName.clear();
+     //firstName.clear();
+    // BrowserUtils.wait(5);
       firstName.sendKeys(firstname);
 
     }
     public void setmidle(String middleName1) {
-        middleName.clear();
+      //  middleName.clear();
+        BrowserUtils.wait(4);
         middleName.sendKeys(middleName1);
     }
 
     public void setlastName(String lastName1) {
-        lastName.clear();
+        //lastName.clear();
+        BrowserUtils.wait(5);
         lastName.sendKeys(lastName1);
     }
 
     public void seturl(String url1) {
-        url.clear();
+       // url.clear();
+        BrowserUtils.wait(3);
         url.sendKeys(url1);
     }
     public void setcompany(String comp) {
-        company.clear();
+      //  company.clear();
+        BrowserUtils.wait(4);
         company.sendKeys(comp);
 
     }
     public void setbio(String bio1) {
-        bio.clear();
+      //  bio.clear();
+        BrowserUtils.wait(4);
         bio.sendKeys(bio1);
 
     }
@@ -106,9 +112,14 @@ public String getFirstName() {
   return   firstName.getText();
 }
 
-}
 
-//    public String getCarGeneralInfo(String parameter) {
-//        String xpath = "//label[text()='" + parameter + "']/following-sibling::div/div";
-//        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
-//        return driver.findElement(By.xpath(xpath)).getText().trim();
+    public void clearForm() {
+        firstName.clear();
+        middleName.clear();
+        lastName.clear();
+        url.clear();
+        company.clear();
+        bio.clear();
+    }
+
+}

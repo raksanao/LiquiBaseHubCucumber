@@ -14,7 +14,12 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/liquibase/step_definitions",
         dryRun = false,
-        tags = "@testcase2"
+
+        tags = "@testcase1"
 )
-public class CuckesRunner2 {
+
+
+public class CukesRunner {
+
+
 }

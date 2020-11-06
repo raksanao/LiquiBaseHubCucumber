@@ -45,6 +45,8 @@ settingPage.clickToSetting();
     @Then("Edit the user info fields to add updated info for your user account.")
     public void edit_the_user_info_fields_to_add_updated_info_for_your_user_account(List<Map<String, String>>dataTable) {
         for (Map<String, String> row : dataTable) {
+            settingPage.clearForm();
+            BrowserUtils.wait(5);
             settingPage.setFirstName(row.get("firstname"));
             BrowserUtils.wait(5);
             settingPage.setmidle(row.get("middlename"));
@@ -61,13 +63,13 @@ settingPage.clickToSetting();
 
         }
     }
-        @Then("User verifies that  info is displayed")
-        public void user_verifies_that_info_is_displayed(Map<String, String> dataTable) {
+        //@Then("User verifies that  info is displayed")
+      //  public void user_verifies_that_info_is_displayed(Map<String, String> dataTable) {
            // for(Map<String, String> row: dataTable){
-      Assert.assertEquals(dataTable.get("firstname"),settingPage.getFirstName());
+    //  Assert.assertEquals(dataTable.get("firstname"),settingPage.getFirstName());
 
 
-        }
+
 
 
 
