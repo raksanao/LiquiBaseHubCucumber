@@ -60,25 +60,31 @@ public class SettingPage {
 
     }
     public void setFirstName(String firstname){
+     firstName.clear();
       firstName.sendKeys(firstname);
 
     }
     public void setmidle(String middleName1) {
+        middleName.clear();
         middleName.sendKeys(middleName1);
     }
 
     public void setlastName(String lastName1) {
+        lastName.clear();
         lastName.sendKeys(lastName1);
     }
 
     public void seturl(String url1) {
+        url.clear();
         url.sendKeys(url1);
     }
     public void setcompany(String comp) {
+        company.clear();
         company.sendKeys(comp);
 
     }
     public void setbio(String bio1) {
+        bio.clear();
         bio.sendKeys(bio1);
 
     }
@@ -94,7 +100,7 @@ public class SettingPage {
         userInfo.click();
 
 }
-public String getUserInfo() {
+public String getFirstName() {
 
     // firstName.sendKeys(name);
   return   firstName.getText();

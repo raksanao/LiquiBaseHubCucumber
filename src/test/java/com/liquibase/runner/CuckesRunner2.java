@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
                 "json:target/cucumber.json"
         },
 
-        features = "src/test/resources/testcase2.feature",
+        features = "src/test/resources/features",
         glue = "com/liquibase/step_definitions",
         dryRun = false,
         tags = "@testcase2"

@@ -8,10 +8,13 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class ProjectPage {
+public class ProjectPage extends BasePage {
 
-    @FindBy(xpath = "(//span[@class='mat-button-wrapper'])[4]")
+  @FindBy(xpath = "(//span[@class='mat-button-wrapper'])[4]")
+
     protected WebElement expand;
     @FindBy(xpath = "//div[.='Operations']")
     protected WebElement operation;
@@ -37,11 +40,16 @@ public class ProjectPage {
         JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
         //use executeScript
         jse.executeScript("arguments[0].click();", projectbtn);
-projectbtn.click();
+
     }
 
-    public void expandModule() {
-        expand.click();
+    public void expandeModule() {
+        WebElement expandBnt = Driver.getDriver().findElement(By.xpath("(//span[@class='mat-button-wrapper'])[4]"));
+        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
+        //use executeScript
+        jse.executeScript("arguments[0].click();", expandBnt);
+
+
 
     }
 
@@ -61,8 +69,12 @@ projectbtn.click();
 
     public void clickDropDownOperat() {
         expandDropDownNoOperation.click();
+    }
+        public void verifyingText(){
         String text = "No Operations to display.";
         Assert.assertEquals(text,expandDropDownNoOperation.getText());
+//WebElement woops=driver.findElement(By.xpath("//div[@class='mat-expansion-panel-body ng-tns-c118-19']"));
+//Assert.assertEquals(woops.getText()," Whoops! It looks like we don't have any Operations to show you here. Go add some! ");
 
     }
 

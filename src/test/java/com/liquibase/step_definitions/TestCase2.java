@@ -9,6 +9,8 @@ import com.liquibase.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
+import org.openqa.selenium.WebElement;
 
 public class TestCase2 {
     LoginPage loginPage=new LoginPage();
@@ -24,28 +26,34 @@ ProjectPage projectPage=new ProjectPage();
         BrowserUtils.wait(4);
        projectPage.clicktoProjects();
        BrowserUtils.wait(4);
-       projectPage.expandModule();
-    }
 
+    }
 
 
 
     @When("Click to expand the default project.")
     public void click_to_expand_the_default_project() {
-//projectPage.expandModule();
+BrowserUtils.wait(6);
+projectPage.expandeModule();
     }
     @Then("Click on the Operations tab under this project.")
     public void click_on_the_Operations_tab_under_this_project() {
-//projectPage.clickToOperationTab();
+        BrowserUtils.wait(4);
+projectPage.clickToOperationTab();
     }
     @Then("In the filter options, select Result = Pass.")
     public void in_the_filter_options_select_Result_Pass() {
-//projectPage.clickToResult();
-//projectPage.clickPass();
+        BrowserUtils.wait(4);
+projectPage.clickToResult();
+projectPage.clickPass();
     }
     @Then("Expand the dropdown below \\(titled No Operations to display).")
     public void expand_the_dropdown_below_titled_No_Operations_to_display() {
-//projectPage.clickDropDownOperat();
+        BrowserUtils.wait(5);
+projectPage.clickDropDownOperat();
+   // String drop=" No Operations to display.";
+projectPage.verifyingText();
+
     }
 
 

@@ -62,9 +62,11 @@ settingPage.clickToSetting();
         }
     }
         @Then("User verifies that  info is displayed")
-        public void user_verifies_that_info_is_displayed(List<Map<String, String>> dataTable) {
-            for(Map<String, String> row: dataTable){
-  //failing assert        Assert.assertEquals(row.get("firstname"),settingPage.getUserInfo());
+        public void user_verifies_that_info_is_displayed(Map<String, String> dataTable) {
+           // for(Map<String, String> row: dataTable){
+      Assert.assertEquals(dataTable.get("firstname"),settingPage.getFirstName());
+
+
         }
 
 
@@ -72,6 +74,6 @@ settingPage.clickToSetting();
     }
 
 
-    }
+
 
 
