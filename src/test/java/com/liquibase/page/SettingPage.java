@@ -59,58 +59,63 @@ public class SettingPage {
 
 
     }
-    public void setFirstName(String firstname){
-     //firstName.clear();
-    // BrowserUtils.wait(5);
-      firstName.sendKeys(firstname);
+
+    public void setFirstName(String firstname) {
+
+        firstName.sendKeys(firstname);
 
     }
+
     public void setmidle(String middleName1) {
-      //  middleName.clear();
+
         BrowserUtils.wait(4);
         middleName.sendKeys(middleName1);
     }
 
     public void setlastName(String lastName1) {
-        //lastName.clear();
+
         BrowserUtils.wait(5);
         lastName.sendKeys(lastName1);
     }
 
     public void seturl(String url1) {
-       // url.clear();
+
         BrowserUtils.wait(3);
         url.sendKeys(url1);
     }
+
     public void setcompany(String comp) {
-      //  company.clear();
+
         BrowserUtils.wait(4);
         company.sendKeys(comp);
 
     }
+
     public void setbio(String bio1) {
-      //  bio.clear();
+
         BrowserUtils.wait(4);
         bio.sendKeys(bio1);
 
     }
-    public void cliktoUpdateInfo(){
+
+    public void cliktoUpdateInfo() {
         WebElement userInfo = Driver.getDriver().findElement(By.xpath("(//div[@class='settings-tree__item'])[1]"));
         JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
-        //use executeScript
-        jse.executeScript("arguments[0].click();",updateProfile);//userinfo
+
+        jse.executeScript("arguments[0].click();", updateProfile);//userinfo
 
     }
 
     public void clicktoUserInfo() {
         userInfo.click();
 
-}
-public String getFirstName() {
+    }
 
-    // firstName.sendKeys(name);
-  return   firstName.getText();
-}
+    public String getFirstName() {
+
+
+        return firstName.getText();
+    }
 
 
     public void clearForm() {
@@ -122,4 +127,16 @@ public String getFirstName() {
         bio.clear();
     }
 
+
+    public String pageTitle() {
+        return Driver.getDriver().getTitle();
+    }
+
+    public String pageUrl() {
+        return Driver.getDriver().getCurrentUrl();
+    }
+
+    public boolean getSettings() {
+        return settings.isEnabled();
+    }
 }

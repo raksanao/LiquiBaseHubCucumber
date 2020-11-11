@@ -62,13 +62,13 @@ settingPage.clickToSetting();
             settingPage.cliktoUpdateInfo();
 
         }
+         Assert.assertEquals(settingPage.pageTitle(), "Liquibase Hub");
+
+         String url = "https://hub-staging.liquibase.com/settings/user-info";
+          Assert.assertEquals(settingPage.pageUrl(), url);
+        Assert.assertEquals(settingPage.getSettings(),true);
+
     }
-        //@Then("User verifies that  info is displayed")
-      //  public void user_verifies_that_info_is_displayed(Map<String, String> dataTable) {
-           // for(Map<String, String> row: dataTable){
-    //  Assert.assertEquals(dataTable.get("firstname"),settingPage.getFirstName());
-
-
 
 
 

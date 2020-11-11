@@ -8,13 +8,7 @@
    #and
     #Create assertions for the above test to make sure you are verifying desired behavior.
 
-     |firstname|middlename |lastname |url     |company    |bio  |
-     |user     |User123    |ruxa     |okk.com |liquebase  |hub  |
-      ## and user loges out
-      ##and user loging back
-      ##steps
+     |firstname|middlename |lastname       |url     |company    |bio  |
+     |user     |John       |Strickland     |okk.com |liquebase  |hub  |
 
-   # Then User verifies that  info is displayed
 
-     # |firstname|middlename |lastname |url     |company    |bio  |
-      #|user1    |UserUser123|ruxa     |okk.com |liquebase  |hub  |
