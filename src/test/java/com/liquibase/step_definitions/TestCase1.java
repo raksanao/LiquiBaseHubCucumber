@@ -64,7 +64,7 @@ settingPage.clickToSetting();
         }
          Assert.assertEquals(settingPage.pageTitle(), "Liquibase Hub");
 
-         String url = "https://hub-staging.liquibase.com/settings/user-inf";
+         String url = "https://hub-staging.liquibase.com/settings/user-info";
           Assert.assertEquals(settingPage.pageUrl(), url);
         Assert.assertEquals(settingPage.getSettings(),true);
 
