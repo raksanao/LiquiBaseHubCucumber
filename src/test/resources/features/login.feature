@@ -1,4 +1,4 @@
-@testcase1
+@testcase1 @smoke
   Feature: Testing login page functionality
     Scenario: User should be logged in
    Given User in Login page

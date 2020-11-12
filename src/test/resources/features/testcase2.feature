@@ -1,4 +1,4 @@
-@testcase2
+@testcase2 @smoke
   Feature: Verifying result
     Scenario: User should be logged in
 
