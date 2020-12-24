@@ -11,7 +11,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class BasePage {
-
     public BasePage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
@@ -23,8 +22,6 @@ public abstract class BasePage {
 
     @FindBy(xpath = "//input[@id='s']")
     protected WebElement searchInput;
-
-
 
     /**
      * Method for SemanticBits navigation. Provide tab name and module name to navigate

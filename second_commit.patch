@@ -1,0 +1,184 @@
+Index: src/test/java/com/liquibase/step_definitions/TestCase1.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/test/java/com/liquibase/step_definitions/TestCase1.java	(revision 2634c7916549a40f42cb27d544510fa94f7468f3)
++++ src/test/java/com/liquibase/step_definitions/TestCase1.java	(date 1605070127051)
+@@ -62,13 +62,13 @@
+             settingPage.cliktoUpdateInfo();
+ 
+         }
+-    }
+-        //@Then("User verifies that  info is displayed")
+-      //  public void user_verifies_that_info_is_displayed(Map<String, String> dataTable) {
+-           // for(Map<String, String> row: dataTable){
+-    //  Assert.assertEquals(dataTable.get("firstname"),settingPage.getFirstName());
++         Assert.assertEquals(settingPage.pageTitle(), "Liquibase Hub");
+ 
++         String url = "https://hub-staging.liquibase.com/settings/user-info";
++          Assert.assertEquals(settingPage.pageUrl(), url);
++        Assert.assertEquals(settingPage.getSettings(),true);
+ 
++    }
+ 
+ 
+ 
+Index: src/test/java/com/liquibase/page/SettingPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/test/java/com/liquibase/page/SettingPage.java	(revision 2634c7916549a40f42cb27d544510fa94f7468f3)
++++ src/test/java/com/liquibase/page/SettingPage.java	(date 1605069088840)
+@@ -59,58 +59,63 @@
+ 
+ 
+     }
+-    public void setFirstName(String firstname){
+-     //firstName.clear();
+-    // BrowserUtils.wait(5);
+-      firstName.sendKeys(firstname);
++
++    public void setFirstName(String firstname) {
++
++        firstName.sendKeys(firstname);
+ 
+     }
++
+     public void setmidle(String middleName1) {
+-      //  middleName.clear();
++
+         BrowserUtils.wait(4);
+         middleName.sendKeys(middleName1);
+     }
+ 
+     public void setlastName(String lastName1) {
+-        //lastName.clear();
++
+         BrowserUtils.wait(5);
+         lastName.sendKeys(lastName1);
+     }
+ 
+     public void seturl(String url1) {
+-       // url.clear();
++
+         BrowserUtils.wait(3);
+         url.sendKeys(url1);
+     }
++
+     public void setcompany(String comp) {
+-      //  company.clear();
++
+         BrowserUtils.wait(4);
+         company.sendKeys(comp);
+ 
+     }
++
+     public void setbio(String bio1) {
+-      //  bio.clear();
++
+         BrowserUtils.wait(4);
+         bio.sendKeys(bio1);
+ 
+     }
+-    public void cliktoUpdateInfo(){
++
++    public void cliktoUpdateInfo() {
+         WebElement userInfo = Driver.getDriver().findElement(By.xpath("(//div[@class='settings-tree__item'])[1]"));
+         JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
+-        //use executeScript
+-        jse.executeScript("arguments[0].click();",updateProfile);//userinfo
++
++        jse.executeScript("arguments[0].click();", updateProfile);//userinfo
+ 
+     }
+ 
+     public void clicktoUserInfo() {
+         userInfo.click();
+ 
+-}
+-public String getFirstName() {
++    }
++
++    public String getFirstName() {
+ 
+-    // firstName.sendKeys(name);
+-  return   firstName.getText();
+-}
++
++        return firstName.getText();
++    }
+ 
+ 
+     public void clearForm() {
+@@ -122,4 +127,16 @@
+         bio.clear();
+     }
+ 
++
++    public String pageTitle() {
++        return Driver.getDriver().getTitle();
++    }
++
++    public String pageUrl() {
++        return Driver.getDriver().getCurrentUrl();
++    }
++
++    public boolean getSettings() {
++        return settings.isEnabled();
++    }
+ }
+\ No newline at end of file
+Index: src/test/java/com/liquibase/step_definitions/TestCase2.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/test/java/com/liquibase/step_definitions/TestCase2.java	(revision 2634c7916549a40f42cb27d544510fa94f7468f3)
++++ src/test/java/com/liquibase/step_definitions/TestCase2.java	(date 1605070246559)
+@@ -54,6 +54,7 @@
+    // String drop=" No Operations to display.";
+ projectPage.verifyingText();
+ 
++
+     }
+ 
+ 
+Index: src/test/resources/features/login.feature
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/test/resources/features/login.feature	(revision 2634c7916549a40f42cb27d544510fa94f7468f3)
++++ src/test/resources/features/login.feature	(date 1605069304508)
+@@ -8,13 +8,7 @@
+    #and
+     #Create assertions for the above test to make sure you are verifying desired behavior.
+ 
+-     |firstname|middlename |lastname |url     |company    |bio  |
+-     |user     |User123    |ruxa     |okk.com |liquebase  |hub  |
+-      ## and user loges out
+-      ##and user loging back
+-      ##steps
++     |firstname|middlename |lastname       |url     |company    |bio  |
++     |user     |John       |Strickland     |okk.com |liquebase  |hub  |
+ 
+-   # Then User verifies that  info is displayed
+ 
+-     # |firstname|middlename |lastname |url     |company    |bio  |
+-      #|user1    |UserUser123|ruxa     |okk.com |liquebase  |hub  |
+Index: configuration.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- configuration.properties	(revision 2634c7916549a40f42cb27d544510fa94f7468f3)
++++ configuration.properties	(date 1605069839060)
+@@ -1,4 +1,4 @@
+ browser=chrome
+ url=https://hub-staging.liquibase.com/landing-page
+-username=raksanao
++username=rukhshonao
+ password=Hubbase87@
+\ No newline at end of file

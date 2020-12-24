@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
         glue = "com/liquibase/step_definitions",
         dryRun = false,
 
-        tags = "@testcase1"
+        tags = "@testcase2"
 )
 
 
