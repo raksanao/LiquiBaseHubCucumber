@@ -5,6 +5,6 @@ public class Test1 {
         String h="hello";
         //comment
         String name="hi";
-
+int n;
     }
 }
