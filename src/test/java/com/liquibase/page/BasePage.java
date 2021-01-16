@@ -63,6 +63,7 @@ public abstract class BasePage {
     public void search (String itemToSearch){
         searchBtn.click();
         searchInput.sendKeys(itemToSearch);
+        //just commit for git
 
     }
 
